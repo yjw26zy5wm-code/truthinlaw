@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TruthInLaw — Know Before You Trust</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --slate: #3d5280;
+    --sky: #e8f0f7;
+    --cream: #faf8f4;
+    --warm: #f5f0e8;
+    --sage: #5a8a72;
+    --amber: #c8773a;
+    --text: #2c2c2c;
+    --muted: #6b7280;
+    --border: #dde3ec;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 248, 244, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { color: var(--sage); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 7rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(90,138,114,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(200,119,58,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(90,138,114,0.2);
+    color: #a8d4bc;
+    border: 1px solid rgba(90,138,114,0.3);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #a8d4bc;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: #4a7a62; transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+  /* STAT BAR */
+  .stat-bar {
+    background: var(--warm);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+  }
+
+  .stat-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--navy);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 560px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  /* WHAT IS AI HALLUCINATION */
+  .explainer {
+    background: white;
+  }
+
+  .explainer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 720px) {
+    .explainer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .callout-box {
+    background: var(--sky);
+    border-left: 4px solid var(--slate);
+    border-radius: 0 12px 12px 0;
+    padding: 2rem;
+  }
+
+  .callout-box h3 {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--slate);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .callout-box p {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .explainer-text h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .explainer-text p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+
+  /* REAL STORIES */
+  .stories { background: var(--cream); }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .story-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+  }
+
+  .story-card:hover {
+    box-shadow: 0 8px 30px rgba(26,39,68,0.08);
+    transform: translateY(-2px);
+  }
+
+  .story-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .tag-red { background: #fee2e2; color: #991b1b; }
+  .tag-amber { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+
+  .story-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .story-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .story-card .story-source {
+    margin-top: 1.25rem;
+    font-size: 0.78rem;
+    color: #9ca3af;
+    font-style: italic;
+  }
+
+  /* WARNING SIGNS */
+  .warnings { background: var(--warm); }
+
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+  }
+
+  .check-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border: 1px solid var(--border);
+  }
+
+  .check-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fee2e2;
+    color: #991b1b;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+
+  .check-text h4 {
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  .check-text p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* FREE RESOURCES */
+  .resources { background: white; }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .resource-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    display: block;
+  }
+
+  .resource-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 4px 16px rgba(90,138,114,0.12);
+  }
+
+  .resource-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .resource-card h3 {
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .resource-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .resource-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  /* QUICK GUIDE */
+  .guide { background: var(--navy); color: white; }
+
+  .guide .section-label { color: #a8d4bc; }
+  .guide .section-title { color: white; }
+  .guide .section-subtitle { color: rgba(255,255,255,0.6); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    counter-reset: steps;
+  }
+
+  .step {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 1.75rem;
+    counter-increment: steps;
+    position: relative;
+  }
+
+  .step::before {
+    content: counter(steps);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.06);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .step h3 {
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .step p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #111827;
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  footer .footer-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  footer .footer-logo span { color: #a8d4bc; }
+
+  footer p { margin-top: 0.5rem; font-weight: 300; }
+
+  footer .footer-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  footer .footer-links a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.82rem;
+  }
+
+  footer .footer-links a:hover { color: white; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    nav .nav-links { display: none; }
+    .stat-bar-inner { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Truth<span>InLaw</span></a>
+    <ul class="nav-links">
+      <li><a href="#what-is-it">What Is This?</a></li>
+      <li><a href="#real-stories">Real Stories</a></li>
+      <li><a href="#warning-signs">Warning Signs</a></li>
+      <li><a href="#resources">Free Help</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Free · No Login · For Everyone</div>
+    <h1>AI gave you legal advice.<br><em>But is it actually true?</em></h1>
+    <p>Every day, people make real decisions about rent, custody, debt, and immigration based on AI-generated legal information — some of which is completely made up. TruthInLaw helps you know the difference.</p>
+    <div class="hero-cta">
+      <a href="#what-is-it" class="btn-primary">Learn What's Happening →</a>
+      <a href="#warning-signs" class="btn-ghost">See the Warning Signs</a>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-bar-inner">
+    <div class="stat">
+      <div class="stat-num">1,174+</div>
+      <div class="stat-label">Documented AI hallucination cases in courts (2026)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$31,000</div>
+      <div class="stat-label">Largest sanction against attorneys for fake AI citations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">79%</div>
+      <div class="stat-label">Of lawyers now use AI tools in some capacity</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4–5/day</div>
+      <div class="stat-label">New hallucination cases being logged globally</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS IT -->
+<section class="explainer white" id="what-is-it">
+  <div class="section-inner">
+    <div class="explainer-grid">
+      <div class="explainer-text">
+        <div class="section-label">Understanding the Problem</div>
+        <h2>AI doesn't look up the law. It guesses what the law sounds like.</h2>
+        <p>When you ask ChatGPT, Google, or another AI tool about a legal question, it doesn't search a real legal database. It predicts what a legally-sounding answer should look like — based on patterns in its training data.</p>
+        <p>Sometimes it's right. Sometimes it invents court cases that don't exist, quotes judges who never said those words, or cites laws that were repealed years ago.</p>
+        <p>This is called a <strong>hallucination</strong> — and it happens even with tools specifically designed for law.</p>
+      </div>
+      <div>
+        <div class="callout-box">
+          <h3>What does a hallucination look like?</h3>
+          <p>Imagine asking an AI: "What are my rights as a tenant if my landlord won't fix the heat?" The AI responds confidently — citing a specific court case, a statute number, even a judge's name. It looks real. It sounds authoritative. But the case never happened. The statute number is wrong. The quote was never said. You act on it. And now you're in worse trouble than before.</p>
+        </div>
+        <div style="margin-top: 1.25rem; background: var(--sky); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border);">
+          <p style="font-size: 0.88rem; color: var(--muted); font-weight: 300;"><strong style="color: var(--navy); font-weight: 500;">The hard truth:</strong> Even expensive legal AI tools used by actual lawyers have been caught doing this — resulting in court sanctions, dismissed cases, and thousands of dollars in fines. If it happens to trained attorneys, it can absolutely happen to you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REAL STORIES -->
+<section class="stories" id="real-stories">
+  <div class="section-inner">
+    <div class="section-label">Real Stories</div>
+    <h2 class="section-title">This isn't theoretical. It's already happening.</h2>
+    <p class="section-subtitle">These are documented, public cases. Every one of them started with someone trusting an AI legal answer they shouldn't have.</p>
+
+    <div class="stories-grid">
+      <div class="story-card">
+        <div class="story-tag tag-red">Court Sanctions</div>
+        <h3>Attorney fined $31,100 for AI-hallucinated citations</h3>
+        <p>Attorneys from two law firms submitted a legal brief containing cases that AI had fabricated. A federal Special Master found they had acted in bad faith. The AI tools used included well-known, paid legal research platforms — not just free chatbots.</p>
+        <div class="story-source">Source: Federal court records, 2025–2026</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-tag tag-amber">Expert Testimony</div>
+        <h3>AI expert's testimony thrown out — for using fake AI citations</h3>
+        <p>An expert witness hired to testify about AI in a court case submitted a report containing citations to cases that didn't exist. The judge threw out the testimony entirely. The irony: an AI expert, undone by AI hallucinations.</p>
+        <div class="story-source">Source: Forbes, January 2025</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-tag tag-blue">Repeated Violations</div>
+        <h3>Attorney sanctioned $15,000 after three separate hallucinated briefs</h3>
+        <p>One attorney submitted not one, but three separate court filings containing AI-fabricated citations. The judge noted that checking whether a cited case actually exists is one of the most basic responsibilities of a practicing attorney.</p>
+        <div class="story-source">Source: Court records, 2025</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-tag tag-red">Appeals Court</div>
+        <h3>Appeals court finds 24+ fake citations in a single brief</h3>
+        <p>The U.S. Court of Appeals for the Sixth Circuit identified more than two dozen fabricated citations in a single filing. The attorney faced $30,000 in total sanctions — a career-altering consequence that started with trusting an AI output.</p>
+        <div class="story-source">Source: Sixth Circuit Court of Appeals, 2025–2026</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-tag tag-amber">Personal Injury</div>
+        <h3>Three attorneys fined $5,000 for fake Walmart lawsuit citations</h3>
+        <p>In a personal injury case against Walmart, three attorneys admitted that AI had fabricated the legal citations in their filing. They had not independently verified any of them before submitting to the court.</p>
+        <div class="story-source">Source: Court records, February 2025</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-tag tag-blue">The Bigger Picture</div>
+        <h3>1,174 documented cases globally — and growing</h3>
+        <p>A researcher at HEC Paris has been tracking AI hallucination incidents in court filings worldwide. The count reached 1,174 by early 2026 — up from just 120 cases between 2023 and mid-2025. New cases are being logged at 4–5 per day.</p>
+        <div class="story-source">Source: Damien Charlotin, HEC Paris research database, 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WARNING SIGNS -->
+<section class="warnings" id="warning-signs">
+  <div class="section-inner">
+    <div class="section-label">Protect Yourself</div>
+    <h2 class="section-title">Warning signs that an AI legal answer might be wrong</h2>
+    <p class="section-subtitle">You don't need a law degree to spot these red flags. If any of these apply to the AI response you received, stop and verify before acting on it.</p>
+
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-icon">!</div>
+        <div class="check-text">
+          <h4>The AI cited a specific case name and number</h4>
+          <p>Case citations like "Smith v. Jones, 442 U.S. 735 (1979)" sound official — but AI frequently invents them. Before trusting any cited case, search for it on Google Scholar or CourtListener (both free).</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">!</div>
+        <div class="check-text">
+          <h4>The AI quoted a judge or statute directly</h4>
+          <p>Quotation marks feel authoritative. But AI often generates plausible-sounding quotes that were never actually said or written. Always find the original document to verify any quoted language.</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">!</div>
+        <div class="check-text">
+          <h4>The AI answered with complete confidence and no caveats</h4>
+          <p>Real legal answers are almost always "it depends." If an AI gives you a definitive yes or no with no uncertainty, that confidence is a warning sign — not reassurance.</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">!</div>
+        <div class="check-text">
+          <h4>The AI referenced a specific law or statute number</h4>
+          <p>Statute numbers like "42 U.S.C. § 1983" are easy to fabricate. Laws also get amended or repealed. Always verify the statute exists and is current at your state legislature's official website or on congress.gov.</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">!</div>
+        <div class="check-text">
+          <h4>The stakes are high — housing, custody, immigration, debt</h4>
+          <p>AI is fine for general information. But if you're facing eviction, a custody dispute, an immigration decision, or serious debt — do not act on AI advice alone. The cost of being wrong is too high.</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">!</div>
+        <div class="check-text">
+          <h4>You can't find the case anywhere online</h4>
+          <p>If you search for a case the AI cited and can't find it on Google, Google Scholar, or CourtListener — it probably doesn't exist. Trust that instinct. The absence of a case is a clear sign of hallucination.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK GUIDE -->
+<section class="guide">
+  <div class="section-inner">
+    <div class="section-label">What To Do Instead</div>
+    <h2 class="section-title" style="max-width: 100%;">How to actually verify a legal claim in 5 steps</h2>
+    <p class="section-subtitle">You don't need a lawyer to do basic verification. Here's a simple process anyone can follow.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Write down the specific claim</h3>
+        <p>Identify exactly what the AI told you — the case name, statute number, or legal rule. Be specific.</p>
+      </div>
+      <div class="step">
+        <h3>Search CourtListener or Google Scholar</h3>
+        <p>Both are free. Search the exact case name. If it doesn't appear, it may not exist.</p>
+      </div>
+      <div class="step">
+        <h3>Read the original, not the summary</h3>
+        <p>Find the actual case text or statute. Does it actually say what the AI claimed? Often it doesn't.</p>
+      </div>
+      <div class="step">
+        <h3>Check if the law is still current</h3>
+        <p>Laws change. Check your state legislature's website or congress.gov to confirm the statute hasn't been amended or repealed.</p>
+      </div>
+      <div class="step">
+        <h3>When in doubt, find free legal help</h3>
+        <p>If the stakes are high, contact a legal aid organization. Many are free for people who qualify. See our resources page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREE RESOURCES -->
+<section class="resources" id="resources">
+  <div class="section-inner">
+    <div class="section-label">Free Help</div>
+    <h2 class="section-title">Legitimate free legal resources</h2>
+    <p class="section-subtitle">These are real, verified resources — no AI hallucinations, no fabricated citations. Actual help from actual organizations.</p>
+
+    <div class="resources-grid">
+      <a href="https://www.courtlistener.com" target="_blank" class="resource-card">
+        <div class="resource-icon">⚖️</div>
+        <h3>CourtListener</h3>
+        <p>Search millions of real court opinions for free. Use this to verify whether a case the AI cited actually exists.</p>
+        <span class="resource-link">courtlistener.com →</span>
+      </a>
+
+      <a href="https://scholar.google.com" target="_blank" class="resource-card">
+        <div class="resource-icon">🔍</div>
+        <h3>Google Scholar (Legal)</h3>
+        <p>Free access to federal and state court opinions. Another reliable way to check whether a cited case is real.</p>
+        <span class="resource-link">scholar.google.com →</span>
+      </a>
+
+      <a href="https://www.lawhelp.org" target="_blank" class="resource-card">
+        <div class="resource-icon">🤝</div>
+        <h3>LawHelp.org</h3>
+        <p>Find free legal aid organizations in your state. Helps with housing, family law, immigration, benefits, and more.</p>
+        <span class="resource-link">lawhelp.org →</span>
+      </a>
+
+      <a href="https://www.lsc.gov/what-legal-aid/find-legal-aid" target="_blank" class="resource-card">
+        <div class="resource-icon">🏛️</div>
+        <h3>Legal Aid Finder (LSC)</h3>
+        <p>The Legal Services Corporation helps low-income Americans access free civil legal help. Find your local office here.</p>
+        <span class="resource-link">lsc.gov →</span>
+      </a>
+
+      <a href="https://www.congress.gov" target="_blank" class="resource-card">
+        <div class="resource-icon">📜</div>
+        <h3>Congress.gov</h3>
+        <p>Verify that a federal statute actually exists and is current. Search by U.S.C. section or bill number.</p>
+        <span class="resource-link">congress.gov →</span>
+      </a>
+
+      <a href="https://www.americanbar.org/groups/legal_services/flh-home/" target="_blank" class="resource-card">
+        <div class="resource-icon">📞</div>
+        <h3>ABA Free Legal Answers</h3>
+        <p>Submit civil legal questions online and get answers from volunteer attorneys — completely free for qualifying users.</p>
+        <span class="resource-link">americanbar.org →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Truth<span>InLaw</span></div>
+  <p>A free public resource for students and young adults navigating legal questions in the age of AI.</p>
+  <p style="margin-top: 0.75rem; font-size: 0.78rem;">TruthInLaw is for educational purposes only and does not constitute legal advice. Always consult a qualified attorney for your specific situation.</p>
+  <div class="footer-links">
+    <a href="#what-is-it">What Is This?</a>
+    <a href="#real-stories">Real Stories</a>
+    <a href="#warning-signs">Warning Signs</a>
+    <a href="#resources">Free Help</a>
+  </div>
+</footer>
+
+</body>
+</html>
