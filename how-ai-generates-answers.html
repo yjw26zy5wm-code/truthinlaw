@@ -1,97 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>What Is an AI Hallucination? | TruthInLaw</title>
+<title>How AI Generates Answers | TruthInLaw</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--navy:#1a2744;
+--cream:#faf8f4;
+--sky:#eef5fb;
+--border:#d8e1ea;
+--text:#2c2c2c;
+--muted:#6b7280;
+--green:#2d8a57;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    font-family:'DM Sans',sans-serif;
-    max-width:900px;
-    margin:auto;
-    padding:40px 20px;
-    line-height:1.8;
-    color:#2c2c2c;
-    background:#faf8f4;
+
+font-family:'DM Sans',sans-serif;
+background:var(--cream);
+color:var(--text);
+line-height:1.8;
+
 }
 
-h1{
-    font-family:'Lora',serif;
-    font-size:3rem;
-    margin-bottom:10px;
+nav{
+
+background:white;
+border-bottom:1px solid var(--border);
+padding:18px 0;
+
 }
 
-h2{
-    margin-top:50px;
+.nav-inner{
+
+max-width:1100px;
+margin:auto;
+padding:0 25px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
 }
 
-a{
-    color:#1a2744;
+.logo{
+
+font-family:'Lora',serif;
+font-size:1.55rem;
+text-decoration:none;
+color:var(--navy);
+
 }
+
+.logo span{
+
+color:#5a8a72;
+
+}
+
+.nav-links{
+
+display:flex;
+gap:2rem;
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:#5b6472;
+font-weight:500;
+
+}
+
+.nav-links a:hover{
+
+color:var(--navy);
+
+}
+
+.container{
+
+max-width:900px;
+margin:auto;
+padding:70px 25px;
+
+}
+
+.hero{
+
+background:white;
+border:1px solid var(--border);
+border-radius:20px;
+padding:50px;
+margin-bottom:60px;
+
+}
+
+.badge{
+
+display:inline-block;
+background:var(--navy);
+color:white;
+padding:7px 15px;
+border-radius:999px;
+font-size:.78rem;
+font-weight:700;
+letter-spacing:.08em;
+margin-bottom:20px;
+
+}
+
+.hero h1{
+
+font-family:'Lora',serif;
+font-size:3rem;
+line-height:1.2;
+margin-bottom:18px;
+color:var(--navy);
+
+}
+
+.subtitle{
+
+font-size:1.15rem;
+color:var(--muted);
+margin-bottom:25px;
+
+}
+
+.meta{
+
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+font-size:.92rem;
+font-weight:500;
+
+}
+
+.meta span{
+
+background:var(--sky);
+padding:8px 14px;
+border-radius:999px;
+
+}
+
+section{
+
+margin-bottom:60px;
+
+}
+
+section h2{
+
+font-family:'Lora',serif;
+font-size:2rem;
+margin-bottom:18px;
+color:var(--navy);
+
+}
+
+p{
+
+margin-bottom:20px;
+
+}
+
+ul{
+
+padding-left:25px;
+margin-bottom:20px;
+
+}
+
+.callout{
+
+background:#eef7ff;
+border-left:5px solid #4f8edc;
+padding:25px;
+border-radius:14px;
+margin:40px 0;
+
+}
+
+footer{
+
+margin-top:80px;
+padding:40px;
+text-align:center;
+border-top:1px solid var(--border);
+color:var(--muted);
+
+}
+
 </style>
 
 </head>
 
 <body>
 
-<a href="index.html">← Back to Home</a>
+<nav>
 
-<h1>How AI Generates Answers (And Why It Sometimes Gets Them Wrong)</h1>
+<div class="nav-inner">
 
-<p>
-Artificial intelligence can write essays, answer questions, summarize court cases,
-and even draft legal documents.
-</p>
+<a class="logo" href="index.html">
 
-<p>
-But sometimes it produces information that is completely false while sounding
-100% confident.
-This is known as an <strong>AI hallucination.</strong>
-</p>
+Truth<span>InLaw</span>
 
-<h2>What is an AI hallucination?</h2>
+</a>
 
-<p>
-An AI hallucination happens when an AI system generates information that appears
-accurate but is actually fabricated, incorrect, or unsupported by evidence.
-Unlike a human intentionally lying, the AI is predicting words rather than
-verifying facts.
-</p>
+<ul class="nav-links">
 
-<h2>Why does it happen?</h2>
+<li><a href="index.html">Home</a></li>
 
-<ul>
-<li>AI predicts text instead of checking facts.</li>
-<li>It may invent legal citations.</li>
-<li>It can misunderstand context.</li>
-<li>It sometimes fills missing information with guesses.</li>
+<li><a href="learn.html">Learn</a></li>
+
+<li><a href="sources.html">Sources</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
 </ul>
 
-<h2>Why does it matter?</h2>
+</div>
 
-<p>
-Incorrect AI-generated legal information can lead to serious consequences,
-including financial loss, court sanctions, and poor legal decisions.
-Always verify important information using official sources.
+</nav>
+
+<div class="container">
+
+<div class="hero">
+
+<span class="badge">
+
+📘 BEGINNER GUIDE
+
+</span>
+
+<h1>
+
+How AI Generates Answers (And Why It Sometimes Gets Them Wrong)
+
+</h1>
+
+<p class="subtitle">
+
+Artificial intelligence doesn't search the internet every time you ask a question.
+Instead, it predicts language based on patterns it learned during training.
+Understanding that difference is the key to using AI responsibly—especially for legal information.
+
 </p>
 
-<h2>How can you protect yourself?</h2>
+<div class="meta">
 
-<ul>
-<li>Verify legal citations.</li>
-<li>Use official government websites.</li>
-<li>Double-check AI answers.</li>
-<li>Never rely on one AI response for legal advice.</li>
-</ul>
+<span>⏱️ 8 Minute Read</span>
 
-<p>
-Want to learn how to verify legal information?
-<a href="sources.html">Visit our Sources page.</a>
-</p>
+<span>🟢 Beginner</span>
 
-</body>
-</html>
+<span>Updated July 2026</span>
+
+</div>
+
+</div>
