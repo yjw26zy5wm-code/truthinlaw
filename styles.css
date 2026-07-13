@@ -1,0 +1,1147 @@
+/* =======================================================
+   TruthInLaw Framework v1.0
+   Global Styles
+======================================================= */
+
+/* ---------- GOOGLE FONTS ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Lora:wght@400;600;700&display=swap');
+
+
+/* ---------- ROOT COLORS ---------- */
+
+:root{
+
+--navy:#1a2744;
+--navy-light:#2f4a77;
+
+--cream:#faf8f4;
+--white:#ffffff;
+
+--sky:#eef5fb;
+--sky-dark:#dceaf8;
+
+--green:#4f8c72;
+--green-light:#edf8f2;
+
+--yellow:#fff7d8;
+--yellow-border:#e4d28d;
+
+--red:#fff0f0;
+--red-border:#e4aaaa;
+
+--border:#d8e1ea;
+
+--text:#2c2c2c;
+--muted:#6b7280;
+
+--shadow:
+0 12px 35px rgba(0,0,0,.06);
+
+--radius:18px;
+
+}
+
+
+/* ---------- RESET ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+/* ---------- PAGE ---------- */
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:'DM Sans',sans-serif;
+
+background:var(--cream);
+
+color:var(--text);
+
+line-height:1.8;
+
+font-size:17px;
+
+}
+
+
+/* ---------- LINKS ---------- */
+
+a{
+
+color:var(--navy);
+
+text-decoration:none;
+
+transition:.25s;
+
+}
+
+a:hover{
+
+color:var(--navy-light);
+
+}
+
+
+/* ---------- IMAGES ---------- */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+
+/* ---------- CONTAINER ---------- */
+
+.container{
+
+max-width:900px;
+
+margin:auto;
+
+padding:70px 24px;
+
+}
+
+
+/* =======================================================
+   READING PROGRESS BAR
+======================================================= */
+
+#progress-container{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:5px;
+
+z-index:9999;
+
+background:transparent;
+
+}
+
+#progress-bar{
+
+height:100%;
+
+width:0%;
+
+background:#2f6fed;
+
+transition:width .08s linear;
+
+}
+
+
+/* =======================================================
+   NAVIGATION
+======================================================= */
+
+nav{
+
+position:sticky;
+
+top:0;
+
+z-index:900;
+
+background:rgba(255,255,255,.95);
+
+backdrop-filter:blur(10px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+.nav-inner{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:18px 28px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.logo{
+
+font-family:'Lora',serif;
+
+font-size:1.6rem;
+
+font-weight:700;
+
+color:var(--navy);
+
+}
+
+.logo span{
+
+color:var(--green);
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:2rem;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+font-weight:500;
+
+color:var(--muted);
+
+}
+
+.nav-links a:hover{
+
+color:var(--navy);
+
+}
+
+
+/* =======================================================
+   HERO CARD
+======================================================= */
+
+.hero{
+
+background:white;
+
+border-radius:var(--radius);
+
+padding:55px;
+
+box-shadow:var(--shadow);
+
+border:1px solid var(--border);
+
+margin-bottom:60px;
+
+}
+
+.hero-badge{
+
+display:inline-block;
+
+background:var(--navy);
+
+color:white;
+
+padding:8px 16px;
+
+border-radius:999px;
+
+font-size:.8rem;
+
+font-weight:700;
+
+letter-spacing:.08em;
+
+margin-bottom:22px;
+
+}
+
+.hero h1{
+
+font-family:'Lora',serif;
+
+font-size:3.2rem;
+
+line-height:1.18;
+
+color:var(--navy);
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:1.15rem;
+
+color:var(--muted);
+
+max-width:700px;
+
+}
+
+
+/* ---------- ARTICLE STATS ---------- */
+
+.article-meta{
+
+display:flex;
+
+gap:16px;
+
+flex-wrap:wrap;
+
+margin-top:30px;
+
+}
+
+.meta-pill{
+
+background:var(--sky);
+
+padding:9px 16px;
+
+border-radius:999px;
+
+font-size:.9rem;
+
+font-weight:600;
+
+}
+/* =======================================================
+   TYPOGRAPHY
+======================================================= */
+
+h2{
+
+font-family:'Lora',serif;
+
+font-size:2.2rem;
+
+color:var(--navy);
+
+margin-bottom:18px;
+
+margin-top:70px;
+
+line-height:1.25;
+
+}
+
+h3{
+
+font-family:'Lora',serif;
+
+font-size:1.45rem;
+
+color:var(--navy);
+
+margin-bottom:14px;
+
+}
+
+p{
+
+margin-bottom:22px;
+
+}
+
+ul{
+
+margin:22px 0 30px 28px;
+
+}
+
+li{
+
+margin-bottom:12px;
+
+}
+
+
+/* =======================================================
+   ARTICLE SECTIONS
+======================================================= */
+
+section{
+
+margin-bottom:75px;
+
+animation:fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(18px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* =======================================================
+   30 SECOND SUMMARY
+======================================================= */
+
+.summary{
+
+background:linear-gradient(
+135deg,
+var(--sky),
+white);
+
+border-left:6px solid var(--navy);
+
+padding:28px;
+
+border-radius:var(--radius);
+
+margin:50px 0;
+
+box-shadow:var(--shadow);
+
+}
+
+.summary h3{
+
+margin-top:0;
+
+margin-bottom:14px;
+
+}
+
+.summary p{
+
+margin-bottom:0;
+
+font-size:1.05rem;
+
+}
+
+
+/* =======================================================
+   TABLE OF CONTENTS
+======================================================= */
+
+.toc{
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:30px;
+
+margin-bottom:60px;
+
+box-shadow:var(--shadow);
+
+}
+
+.toc h3{
+
+margin-bottom:18px;
+
+}
+
+.toc ul{
+
+list-style:none;
+
+margin:0;
+
+padding:0;
+
+}
+
+.toc li{
+
+margin-bottom:14px;
+
+}
+
+.toc a{
+
+display:block;
+
+padding:10px 14px;
+
+border-radius:10px;
+
+font-weight:500;
+
+transition:.25s;
+
+}
+
+.toc a:hover{
+
+background:var(--sky);
+
+padding-left:20px;
+
+}
+
+
+/* =======================================================
+   BUTTONS
+======================================================= */
+
+.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:14px 24px;
+
+border-radius:999px;
+
+font-weight:600;
+
+transition:.25s;
+
+cursor:pointer;
+
+}
+
+.btn-primary{
+
+background:var(--navy);
+
+color:white;
+
+}
+
+.btn-primary:hover{
+
+background:var(--navy-light);
+
+transform:translateY(-2px);
+
+}
+
+.btn-secondary{
+
+background:white;
+
+border:1px solid var(--border);
+
+color:var(--navy);
+
+}
+
+.btn-secondary:hover{
+
+background:var(--sky);
+
+transform:translateY(-2px);
+
+}
+
+
+/* =======================================================
+   ARTICLE CARDS
+======================================================= */
+
+.card{
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:28px;
+
+box-shadow:var(--shadow);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+0 18px 40px rgba(0,0,0,.08);
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+/* =======================================================
+   CALLOUT BOXES
+======================================================= */
+
+.callout{
+
+padding:28px;
+
+margin:35px 0;
+
+border-radius:var(--radius);
+
+box-shadow:var(--shadow);
+
+}
+
+.callout h3{
+
+margin-top:0;
+
+margin-bottom:15px;
+
+}
+
+.callout p:last-child{
+
+margin-bottom:0;
+
+}
+
+
+/* ---------- Information ---------- */
+
+.info{
+
+background:var(--sky);
+
+border-left:6px solid #2f6fed;
+
+}
+
+
+/* ---------- Warning ---------- */
+
+.warning{
+
+background:var(--yellow);
+
+border-left:6px solid #d4a017;
+
+}
+
+
+/* ---------- Success ---------- */
+
+.success{
+
+background:var(--green-light);
+
+border-left:6px solid var(--green);
+
+}
+
+
+/* ---------- Danger ---------- */
+
+.danger{
+
+background:var(--red);
+
+border-left:6px solid #d9534f;
+
+}
+
+
+/* =======================================================
+   TRUTHINLAW CONFIDENCE CHECK
+======================================================= */
+
+.confidence-check{
+
+background:linear-gradient(
+135deg,
+#f4f8ff,
+white);
+
+border:2px solid #2f6fed;
+
+border-radius:22px;
+
+padding:40px;
+
+margin:70px 0;
+
+box-shadow:0 15px 40px rgba(47,111,237,.10);
+
+}
+
+.confidence-check h2{
+
+margin-top:0;
+
+margin-bottom:20px;
+
+}
+
+.confidence-check ul{
+
+margin-top:20px;
+
+margin-left:25px;
+
+}
+
+.confidence-check li{
+
+font-size:1.05rem;
+
+margin-bottom:14px;
+
+font-weight:500;
+
+}
+
+
+/* =======================================================
+   KEY TAKEAWAYS
+======================================================= */
+
+.takeaways{
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:35px;
+
+box-shadow:var(--shadow);
+
+margin:60px 0;
+
+}
+
+.takeaways ul{
+
+margin-left:22px;
+
+}
+
+.takeaways li{
+
+margin-bottom:14px;
+
+font-weight:500;
+
+}
+
+
+/* =======================================================
+   QUOTE BLOCK
+======================================================= */
+
+blockquote{
+
+font-family:'Lora',serif;
+
+font-size:1.35rem;
+
+font-style:italic;
+
+color:var(--navy);
+
+border-left:5px solid var(--green);
+
+padding-left:25px;
+
+margin:45px 0;
+
+}
+
+
+/* =======================================================
+   DIVIDERS
+======================================================= */
+
+.divider{
+
+width:90px;
+
+height:4px;
+
+background:linear-gradient(
+90deg,
+var(--navy),
+var(--green));
+
+border-radius:999px;
+
+margin:55px auto;
+
+}
+/* =======================================================
+   CONTINUE LEARNING
+======================================================= */
+
+.learning-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:24px;
+
+margin-top:35px;
+
+}
+
+.learning-card{
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+padding:28px;
+
+box-shadow:var(--shadow);
+
+transition:.30s;
+
+}
+
+.learning-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+.learning-card small{
+
+display:block;
+
+color:var(--muted);
+
+margin-bottom:10px;
+
+font-size:.85rem;
+
+}
+
+.learning-card h3{
+
+margin:0;
+
+font-size:1.25rem;
+
+}
+
+.learning-card p{
+
+margin-top:12px;
+
+margin-bottom:0;
+
+color:var(--muted);
+
+}
+
+
+/* =======================================================
+   LEARNING PROGRESS
+======================================================= */
+
+.progress-section{
+
+margin-top:80px;
+
+padding:35px;
+
+background:white;
+
+border-radius:20px;
+
+border:1px solid var(--border);
+
+box-shadow:var(--shadow);
+
+text-align:center;
+
+}
+
+.progress-section h2{
+
+margin-top:0;
+
+margin-bottom:20px;
+
+}
+
+.progress-track{
+
+width:100%;
+
+height:14px;
+
+background:#e6eaf0;
+
+border-radius:999px;
+
+overflow:hidden;
+
+margin:20px 0;
+
+}
+
+.progress-fill{
+
+height:100%;
+
+width:20%;
+
+background:linear-gradient(
+90deg,
+var(--navy),
+var(--green));
+
+border-radius:999px;
+
+}
+
+
+/* =======================================================
+   FOOTER
+======================================================= */
+
+footer{
+
+margin-top:100px;
+
+padding:60px 20px;
+
+text-align:center;
+
+border-top:1px solid var(--border);
+
+color:var(--muted);
+
+}
+
+footer h2{
+
+margin-top:0;
+
+margin-bottom:12px;
+
+font-size:2rem;
+
+}
+
+footer p{
+
+max-width:650px;
+
+margin:auto;
+
+margin-bottom:15px;
+
+}
+
+footer .copyright{
+
+margin-top:30px;
+
+font-size:.9rem;
+
+opacity:.8;
+
+}
+
+
+/* =======================================================
+   UTILITIES
+======================================================= */
+
+.text-center{
+
+text-align:center;
+
+}
+
+.mt-1{margin-top:10px;}
+.mt-2{margin-top:20px;}
+.mt-3{margin-top:35px;}
+.mt-4{margin-top:50px;}
+
+.mb-1{margin-bottom:10px;}
+.mb-2{margin-bottom:20px;}
+.mb-3{margin-bottom:35px;}
+.mb-4{margin-bottom:50px;}
+
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width:900px){
+
+.hero{
+
+padding:38px;
+
+}
+
+.hero h1{
+
+font-size:2.4rem;
+
+}
+
+.article-meta{
+
+gap:10px;
+
+}
+
+.learning-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media (max-width:700px){
+
+.container{
+
+padding:40px 20px;
+
+}
+
+.nav-inner{
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.nav-links{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:14px;
+
+}
+
+.hero{
+
+padding:30px;
+
+}
+
+.hero h1{
+
+font-size:2rem;
+
+}
+
+h2{
+
+font-size:1.8rem;
+
+}
+
+.summary,
+.callout,
+.confidence-check,
+.takeaways,
+.progress-section{
+
+padding:24px;
+
+}
+
+.meta-pill{
+
+font-size:.8rem;
+
+}
+
+}
+
+@media (max-width:480px){
+
+body{
+
+font-size:16px;
+
+}
+
+.hero h1{
+
+font-size:1.8rem;
+
+}
+
+.logo{
+
+font-size:1.4rem;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+}
