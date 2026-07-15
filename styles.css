@@ -1145,3 +1145,92 @@ width:100%;
 }
 
 }
+/* =======================================================
+COURSE BANNER
+======================================================= */
+
+.course-banner{
+
+background:#ffffff;
+
+padding:30px;
+
+border-radius:18px;
+
+margin:40px 0;
+
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+}
+
+.course-info{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:40px;
+
+flex-wrap:wrap;
+
+}
+
+.course-banner h2{
+
+margin-bottom:8px;
+
+color:#1a2744;
+
+}
+
+.course-banner p{
+
+color:#666;
+
+max-width:600px;
+
+}
+
+.course-progress{
+
+min-width:260px;
+
+}
+
+.progress-label{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:10px;
+
+font-size:.95rem;
+
+font-weight:600;
+
+}
+
+.progress-bar{
+
+height:12px;
+
+background:#e5e7eb;
+
+border-radius:999px;
+
+overflow:hidden;
+
+}
+
+.progress-fill{
+
+height:100%;
+
+background:#2e8b57;
+
+border-radius:999px;
+
+}
