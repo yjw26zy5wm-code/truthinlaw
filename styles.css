@@ -1344,3 +1344,29 @@ border-radius:999px;
     color:#444;
 
 }
+footer .footer-links a:hover {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  nav .nav-links { display: none; }
+  .stat-bar-inner { gap: 1.5rem; }
+}
+
+/* ==========================================================
+   HOMEPAGE - LEARNING ACADEMY
+========================================================== */
+
+.academy-home{
+    ...
+}
+
+...all the new CSS...
+
+.academy-home .btn-primary:hover{
+    ...
+}
+
+@media(max-width:768px){
+    ...
+}
